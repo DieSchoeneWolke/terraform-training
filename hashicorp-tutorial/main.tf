@@ -10,14 +10,17 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-west-2"
+  region  = "eu-central-1"
 }
 
 resource "aws_instance" "app_server" {
-  ami           = "ami-08d70e59c07c61a3a"
+  ami           = "ami-04e601abe3e1a910f"
   instance_type = "t2.micro"
 
   tags = {
     Name = "var.instance_name"
   }
 }
+
+#terraform apply -var "instace_name=NAME"
+#still wont accept a custom name and needs a fix
