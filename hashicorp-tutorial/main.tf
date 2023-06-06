@@ -18,6 +18,12 @@ resource "aws_instance" "app_server" {
   instance_type = "t2.micro"
 
   tags = {
-    Name = "var.instance_name"
+    Name = var.instance_name
   }
 }
+
+#terraform init
+#terraform apply -var "instance_name=YOURNAME"
+#terraform destroy
+
+#when launched it will rename your instance
