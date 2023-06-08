@@ -34,7 +34,7 @@ resource "aws_vpc" "main" {
 resource "aws_subnet" "presentationtier-a" {
   vpc_id     = aws_vpc.main.id
   cidr_block = "10.0.1.0/28"
-  availability_zone = eu-central-1a
+  availability_zone = "eu-central-1a"
   tags = {
     Name = "presentationtier-subnet-a"
   }
@@ -42,8 +42,8 @@ resource "aws_subnet" "presentationtier-a" {
 
 resource "aws_subnet" "presentationtier-b" {
   vpc_id     = aws_vpc.main.id
-  cidr_block = "10.0.1.0/28"
-  availability_zone = eu-central-1b
+  cidr_block = "10.0.2.0/28"
+  availability_zone = "eu-central-1b"
   tags = {
     Name = "presentationtier-subnet-b"
   }
@@ -51,8 +51,8 @@ resource "aws_subnet" "presentationtier-b" {
 
 resource "aws_subnet" "apptier-a" {
   vpc_id     = aws_vpc.main.id
-  cidr_block = "10.0.2.0/28"
-  availability_zone = eu-central-1a
+  cidr_block = "10.0.3.0/28"
+  availability_zone = "eu-central-1a"
   tags = {
     Name = "apptier-subnet-a"
   }
@@ -60,8 +60,8 @@ resource "aws_subnet" "apptier-a" {
 
 resource "aws_subnet" "apptier-b" {
   vpc_id     = aws_vpc.main.id
-  cidr_block = "10.0.2.0/28"
-  availability_zone = eu-central-1b
+  cidr_block = "10.0.4.0/28"
+  availability_zone = "eu-central-1b"
   tags = {
     Name = "apptier-subnet-b"
   }
@@ -69,8 +69,8 @@ resource "aws_subnet" "apptier-b" {
 
 resource "aws_subnet" "datatier-a" {
   vpc_id     = aws_vpc.main.id
-  cidr_block = "10.0.3.0/28"
-  availability_zone = eu-central-1a
+  cidr_block = "10.0.5.0/28"
+  availability_zone = "eu-central-1a"
   tags = {
     Name = "datatier-subnet-a"
   }
@@ -78,8 +78,8 @@ resource "aws_subnet" "datatier-a" {
 
 resource "aws_subnet" "datatier-b" {
   vpc_id     = aws_vpc.main.id
-  cidr_block = "10.0.3.0/28"
-  availability_zone = eu-central-1b
+  cidr_block = "10.0.6.0/28"
+  availability_zone = "eu-central-1b"
   tags = {
     Name = "datatier-subnet-b"
   }
@@ -88,7 +88,7 @@ resource "aws_subnet" "datatier-b" {
 resource "aws_subnet" "private-a" {
   vpc_id     = aws_vpc.main.id
   cidr_block = "10.2.0.0/28"
-  availability_zone = eu-central-1a
+  availability_zone = "eu-central-1a"
   tags = {
     Name = "private-subnet-a"
   }
@@ -96,8 +96,8 @@ resource "aws_subnet" "private-a" {
 
 resource "aws_subnet" "private-b" {
   vpc_id     = aws_vpc.main.id
-  cidr_block = "10.2.0.0/28"
-  availability_zone = eu-central-1b
+  cidr_block = "10.3.0.0/28"
+  availability_zone = "eu-central-1b"
   tags = {
     Name = "private-subnet-b"
   }
