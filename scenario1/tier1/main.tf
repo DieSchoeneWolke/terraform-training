@@ -25,7 +25,7 @@ provider "aws" {
 
 
 resource "aws_vpc" "main" {
-  cidr_block = "10.0.0.0/16"
+  cidr_block = "172.31.0.0/16"
   tags = {
     Name = "main-vpc"
   }
@@ -33,7 +33,7 @@ resource "aws_vpc" "main" {
 
 resource "aws_subnet" "presentationtier-a" {
   vpc_id     = aws_vpc.main.id
-  cidr_block = "10.1.1.0/24"
+  cidr_block = "172.31.1.0/24"
   availability_zone = "eu-central-1a"
   tags = {
     Name = "presentationtier-subnet-a"
@@ -42,28 +42,28 @@ resource "aws_subnet" "presentationtier-a" {
 
 resource "aws_subnet" "apptier-a" {
   vpc_id     = aws_vpc.main.id
-  cidr_block = "10.1.2.0/24"
+  cidr_block = "172.31.2.0/24"
   availability_zone = "eu-central-1a"
   tags = {
     Name = "apptier-subnet-a"
   }
 }
 
-resource "aws_subnet" "private-a" {
+resource "aws_subnet" "datatier-a" {
   vpc_id     = aws_vpc.main.id
-  cidr_block = "10.1.3.0/24"
+  cidr_block = "172.31.3.0/24"
   availability_zone = "eu-central-1a"
   tags = {
-    Name = "private-subnet-a"
+    Name = "datatier-subnet-a"
   }
 }
 
-resource "aws_subnet" "private-b" {
+resource "aws_subnet" "private-a" {
   vpc_id     = aws_vpc.main.id
-  cidr_block = "10.1.4.0/24"
-  availability_zone = "eu-central-1b"
+  cidr_block = "172.31.4.0/24"
+  availability_zone = "eu-central-1a"
   tags = {
-    Name = "private-subnet-b"
+    Name = "private-subnet-a"
   }
 }
 
@@ -91,3 +91,4 @@ database security group after creating the database security group.
 /*
 current work: step 2 & 3
 */
+
