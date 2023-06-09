@@ -40,16 +40,6 @@ resource "aws_subnet" "presentationtier-a" {
     Name = "presentationtier-subnet-a"
   }
 }
-/*
-resource "aws_subnet" "presentationtier-b" {
-  vpc_id     = aws_vpc.main.id
-  cidr_block = "172.31.1.96/27"
-  availability_zone = "eu-central-1b"
-  tags = {
-    Name = "presentationtier-subnet-b"
-  }
-}
-*/
 
 resource "aws_subnet" "apptier-a" {
   vpc_id     = aws_vpc.main.id
@@ -59,38 +49,7 @@ resource "aws_subnet" "apptier-a" {
     Name = "apptier-subnet-a"
   }
 }
-/*
-resource "aws_subnet" "apptier-b" {
-  vpc_id     = aws_vpc.main.id
-  cidr_block = "172.31.2.96/27"
-  availability_zone = "eu-central-1b"
-  tags = {
-    Name = "apptier-subnet-b"
-  }
-}
-*/
 
-/*
-resource "aws_subnet" "datatier-a" {
-  vpc_id     = aws_vpc.main.id
-  cidr_block = "172.31.3.0/27"
-  availability_zone = "eu-central-1a"
-  tags = {
-    Name = "datatier-subnet-a"
-  }
-}
-*/
-
-/*
-resource "aws_subnet" "datatier-b" {
-  vpc_id     = aws_vpc.main.id
-  cidr_block = "172.31.3.96/27"
-  availability_zone = "eu-central-1b"
-  tags = {
-    Name = "datatier-subnet-b"
-  }
-}
-*/
 resource "aws_subnet" "datatier-a" {
   vpc_id     = aws_vpc.main.id
   cidr_block = "172.31.3.0/27"
@@ -109,17 +68,18 @@ resource "aws_subnet" "datatier-b" {
   }
 }
 
+
 /*
 Make VPC
 ~~● 4 subnets (1 public, 3 private)~~
-
-● Enable in subnet settings public ip addresses
-● Make it highly available (use 2 availability zones, the final private subnet can be the only
-one in a different subnet)
+~~● Enable in subnet settings public ip addresses~~
+~~● Make it highly available (use 2 availability zones, the final private subnet can be the only
+one in a different subnet)~~
 
 ● Allocate an Elastic IP
 ● Create a nat gateway
 ● Create an internet gateway and attach it to your VPC
+
 ● Make route tables for your public and private subnets and attach an internet gateway
 and nat gateway to them respectively
 ● Make security groups for Bastion Host, web server, app server, and database
@@ -130,6 +90,6 @@ database security group after creating the database security group.
 
 
 /*
-current work: step 2 & 3
+current work: steps 4,5 & 6
 */
 
