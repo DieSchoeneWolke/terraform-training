@@ -55,25 +55,31 @@ resource "aws_subnet" "datatier-b" {
   }
 }
 
+//Elastic IP
 /*
-Elastic IP
 resource "aws_eip" "vpc" {
   domain   = "vpc"
 }
-
-// I created it through the AWS console so it wouldn't get removed with 'terraform destroy' and to keep the ID for the nat gateway.
 */
-
+// I created it through the AWS console so it wouldn't get removed with 'terraform destroy' and to keep the ID for the nat gateway.
 
 resource "aws_nat_gateway" "main" {
-  allocation_id = "eipalloc-0ef6edfdf95dc3118"
-  subnet_id = "subnet-01f9fdadcf7afc51f"
+  allocation_id = "eipalloc-094f3c5ef0a632d99"
+  subnet_id = aws_subnet.presentationtier-a.id
   tags = {
     Name = "gw NAT"
   }
 
   # To ensure proper ordering, it is recommended to add an explicit dependency
   # on the Internet Gateway for the VPC.
-  # depends_on = [aws_internet_gateway.example]
+  depends_on = [aws_internet_gateway.gw]
 
+}
+
+resource "aws_internet_gateway" "gw" {
+  vpc_id = aws_vpc.main.id
+
+  tags = {
+    Name = "main"
+  }
 }
