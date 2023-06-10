@@ -1,0 +1,59 @@
+name: Test on Merge to Testing
+
+on:
+  pull_request:
+    branches:
+      - testing
+    types:
+      - closed
+
+jobs:
+  test_application:
+    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'testing'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          ref: testing
+
+      # Add your application testing steps here
+
+  test_terraform:
+    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'testing'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          ref: testing
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Validate
+        run: terraform validate
+
+      # Add any other Terraform testing steps you'd like to perform
+
+  create_pr:
+    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'dev'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          ref: dev
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Merge dev to testing"
+          title: "Merge dev to testing"
+          body: "Automated PR to update testing branch with latest changes from dev"
+          branch: "auto-merge-dev-to-testing"
+          base: "testing"
