@@ -55,6 +55,10 @@ resource "aws_subnet" "datatier-b" {
   }
 }
 
+//Elastic IP
+resource "aws_eip" "vpc" {
+  domain   = "vpc"
+}
 
 
 
