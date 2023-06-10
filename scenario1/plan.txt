@@ -14,8 +14,8 @@ Make VPC
 ~~● Enable in subnet settings public ip addresses~~
 ~~● Make it highly available (use 2 availability zones, the final private subnet can be the only
 one in a different subnet)~~
+~~● Allocate an Elastic IP~~
 
-● Allocate an Elastic IP
 ● Create a nat gateway
 ● Create an internet gateway and attach it to your VPC
 
@@ -27,6 +27,8 @@ to link them together, for example in the app server security group adding a rul
 database security group after creating the database security group.
 
 
+current work: steps 5 & 6
 
 
-current work: steps 4,5 & 6
+current problem:
+https://stackoverflow.com/questions/76444545/retrieve-ids-in-terraform-before-script-execution
