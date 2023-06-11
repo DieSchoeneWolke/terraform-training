@@ -1,6 +1,7 @@
 name: Test on Commit to Dev
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - dev
@@ -46,3 +47,5 @@ jobs:
           body: "Automated PR to update testing branch with latest changes from dev"
           branch: "auto-merge-dev-to-testing"
           base: "testing"
+          
+workflow_dispatch:
