@@ -31,4 +31,8 @@ current work: step 7
 
 
 current problem:
-https://stackoverflow.com/questions/76444545/retrieve-ids-in-terraform-before-script-execution
+
+looking for aws credits or sandbox account
+localstack as aws emulator won't run
+`[-functhread3] hypercorn.error`
+https://github.com/localstack/cockpit/issues/19
