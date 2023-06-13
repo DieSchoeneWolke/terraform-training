@@ -60,7 +60,7 @@ resource "aws_subnet" "datatier-b" {
 resource "aws_eip" "vpc" {
   domain   = "vpc"
 }
-*/
+
 // I created it through the AWS console so it wouldn't get removed with 'terraform destroy' and to keep the ID for the nat gateway.
 // Update: Enabled it again beacuse using an elastic IP incurs some costs when it's not attached! 
 // $0.005 per Elastic IP address not attached to a running instance per hour
