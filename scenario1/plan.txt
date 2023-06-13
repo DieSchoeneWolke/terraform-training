@@ -14,19 +14,24 @@ Make VPC
 ~~● Enable in subnet settings public ip addresses~~
 ~~● Make it highly available (use 2 availability zones, the final private subnet can be the only
 one in a different subnet)~~
+~~● Allocate an Elastic IP~~
+~~● Create a nat gateway~~
+~~● Create an internet gateway and attach it to your VPC~~
+~~● Make route tables for your public and private subnets and attach an internet gateway
+and nat gateway to them respectively~~
 
-● Allocate an Elastic IP
-● Create a nat gateway
-● Create an internet gateway and attach it to your VPC
-
-● Make route tables for your public and private subnets and attach an internet gateway
-and nat gateway to them respectively
 ● Make security groups for Bastion Host, web server, app server, and database
 ● Make sure to go back to security groups after making them and adding security groups
 to link them together, for example in the app server security group adding a rule for the
 database security group after creating the database security group.
 
 
+current work: step 8 & 9
 
 
-current work: steps 4,5 & 6
+current problem:
+
+looking for aws credits or sandbox account
+localstack as aws emulator won't run
+`[-functhread3] hypercorn.error`
+https://github.com/localstack/cockpit/issues/19
